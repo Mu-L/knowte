@@ -17,7 +17,7 @@ export class InformationAboutComponent {
     public applicationVersion: string = ProductInformation.applicationVersion;
     public applicationCopyright: string = ProductInformation.applicationCopyright;
     public websiteUrl: string = Constants.websiteUrl;
-    public twitterUrl: string = Constants.twitterUrl;
+    public blueskyUrl: string = Constants.blueskyUrl;
     public mastodonUrl: string = Constants.mastodonUrl;
     public githubUrl: string = Constants.githubUrl;
 
