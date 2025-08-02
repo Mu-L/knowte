@@ -69,26 +69,29 @@ export class PrintService {
                     }
 
                     pre {
-                        background-color: #f6f8fa;
+                        background-color: #eee;
+                        color: black;
                         border-radius: 3px;
-                        white-space: pre-wrap;
-                        margin: 5px 0 5px 0;
-                        padding: 5px 10px;
-                    }
-
-                    pre.ql-syntax {
-                        background-color: #23241f;
-                        color: #f8f8f2;
-                        overflow: visible;
-
+                        padding: 2px 5px;
                         font-family: Consolas, "Andale Mono WT", "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Liberation Mono", "Nimbus Mono L", Monaco, "Courier New", Courier, monospace;
                     }
 
+                    code {
+                        background-color: #eee;
+                        color: black;
+                        border-radius: 3px;
+                        font-family: Consolas, "Andale Mono WT", "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Liberation Mono", "Nimbus Mono L", Monaco, "Courier New", Courier, monospace;
+                    }
+                    
+                    code:not(pre code) {
+                        padding: 2px 5px;
+                    }
+
                     blockquote {
-                        border-left: 4px solid #d0d7de;
+                        border-left: 4px solid #d0d0d0;
                         margin: 5px 0 5px 0;
                         padding: 0 0 0 16px;
-                        color: #57606a;
+                        color: #575757;
                     }
 
                     .page-title{
@@ -105,16 +108,16 @@ export class PrintService {
                     table th,
                     table td {
                         padding: 6px 13px;
-                        border: 1px solid #d0d7de;
+                        border: 1px solid #d0d0d0;
                     }
 
                     table tr {
                         background-color: #ffffff;
-                        border-top: 1px solid #d7dee4;
+                        border-top: 1px solid #d7d7d7;
                     }
 
                     table tr:nth-child(2n) {
-                        background-color: #f6f8fa;
+                        background-color: #eee;
                     }
                 </style>`;
     }
@@ -123,6 +126,7 @@ export class PrintService {
         const printHtmlFileContent: string = this.createPrintHtmlFileContent(pageTitle, pageContent, isMarkdownNote);
 
         try {
+            alert(printHtmlFileContent);
             const printHtmlFilePath: string = await this.temporaryStorageService.createPrintHtmlFileAsync(printHtmlFileContent);
 
             return printHtmlFilePath;
