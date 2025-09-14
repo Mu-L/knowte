@@ -8,4 +8,10 @@
     <app-toggle-switch class="mt-2" [(isChecked)]="moveDeletedNotesToTrashChecked">
         {{ 'SettingsPage.MoveDeletedNotesToTrash' | translate }}
     </app-toggle-switch>
+    <mat-divider class="my-3"></mat-divider>
+    <div class="title1 mt-2">{{ 'SettingsPage.CollectionsDirectory' | translate }}</div>
+    <div>{{ 'SettingsPage.SelectOtherCollectionsDirectory' | translate }}</div>
+    <app-accent-button class="mt-2" (click)="openDirectoryChooserAsync()">
+        {{ 'SettingsPage.SelectButton' | translate }}
+    </app-accent-button>
 </div>

@@ -25,8 +25,7 @@ export class WelcomeComponent implements OnInit {
         public router: Router,
         private logger: Logger
     ) {}
-
-    public applicationName: string = ProductInformation.applicationName.toUpperCase();
+    
     public isBusy: boolean = false;
 
     public ngOnInit(): void {}
@@ -53,7 +52,7 @@ export class WelcomeComponent implements OnInit {
         const selectedParentDirectory: string = openDialogReturnValue.filePaths[0];
         this.logger.info(`Selected directory: '${selectedParentDirectory}'`, 'WelcomeComponent', 'openDirectoryChooserAsync');
 
-        this.zone.run(async () => {
+        await this.zone.run(async () => {
             this.isBusy = true;
 
             if (!(await this.collectionService.setStorageDirectoryAsync(selectedParentDirectory))) {
@@ -70,7 +69,7 @@ export class WelcomeComponent implements OnInit {
 
             this.isBusy = false;
 
-            this.router.navigate(['/collection']);
+            await this.router.navigate(['/collection']);
         });
     }
 }

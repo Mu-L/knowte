@@ -9,9 +9,9 @@
             <div class="welcome-title mt-4">{{ 'WelcomePage.Title' | translate }}</div>
             <div class="welcome-text mt-4">{{ 'WelcomePage.Text' | translate }}</div>
             <div class="mt-4">
-                <button mat-raised-button color="primary" (click)="openDirectoryChooserAsync()" *ngIf="!isBusy">
-                    {{ 'WelcomePage.SelectButton' | translate }}
-                </button>
+                <app-accent-button class="mt-2" (click)="openDirectoryChooserAsync()" *ngIf="!isBusy">
+                    {{ 'SettingsPage.SelectButton' | translate }}
+                </app-accent-button>
                 <mat-spinner *ngIf="isBusy" [diameter]="40"></mat-spinner>
             </div>
         </div>

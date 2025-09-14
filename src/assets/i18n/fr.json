@@ -47,7 +47,7 @@
         "Updates": "Mises à jour",
         "CheckForUpdates": "Vérifier les mises à jour",
         "Trash": "Corbeille",
-        "MoveDeletedNotesToTrash": "Déplacez les notes supprimées dans la corbeille au lieu de les supprimer définitivement.",
+        "MoveDeletedNotesToTrash": "Déplacez les notes supprimées dans la corbeille au lieu de les supprimer définitivement",
         "SpellChecker": "Correcteur orthographique",
         "EnableSpellChecker": "Activer le correcteur orthographique",
         "FormatsForNewNotes": "Formats pour les nouvelles notes",
@@ -58,7 +58,10 @@
         "UseLightTheme": "Utiliser le thème clair",
         "FollowSystemColor": "Suivre la couleur du système",
         "RefreshThemes": "Actualiser les thèmes",
-        "AddMoreThemes": "Ajouter plus de thèmes"
+        "AddMoreThemes": "Ajouter plus de thèmes",
+        "CollectionsDirectory": "Collections directory",
+        "SelectOtherCollectionsDirectory": "Select another collections directory",
+        "SelectButton": "SELECT..."
     },
     "ComponentsPage": {
         "Components": "Composants"

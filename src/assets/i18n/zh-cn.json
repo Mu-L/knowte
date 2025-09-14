@@ -58,7 +58,10 @@
         "UseLightTheme": "Use light theme",
         "FollowSystemColor": "Follow the system color",
         "RefreshThemes": "Refresh themes",
-        "AddMoreThemes": "Add more themes"
+        "AddMoreThemes": "Add more themes",
+        "CollectionsDirectory": "Collections directory",
+        "SelectOtherCollectionsDirectory": "Select another collections directory",
+        "SelectButton": "SELECT..."
     },
     "ComponentsPage": {
         "Components": "组件"

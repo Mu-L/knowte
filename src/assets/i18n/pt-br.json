@@ -47,7 +47,7 @@
         "Updates": "Updates",
         "CheckForUpdates": "Checar updates",
         "Trash": "Lixeira",
-        "MoveDeletedNotesToTrash": "Mova notas deletadas para a lixeira ao invés de deleta-lás permanentemente.",
+        "MoveDeletedNotesToTrash": "Mova notas deletadas para a lixeira ao invés de deleta-lás permanentemente",
         "SpellChecker": "Spell checker",
         "EnableSpellChecker": "Enable spell checker",
         "FormatsForNewNotes": "Formats for new notes",
@@ -58,7 +58,10 @@
         "UseLightTheme": "Use light theme",
         "FollowSystemColor": "Follow the system color",
         "RefreshThemes": "Refresh themes",
-        "AddMoreThemes": "Add more themes"
+        "AddMoreThemes": "Add more themes",
+        "CollectionsDirectory": "Collections directory",
+        "SelectOtherCollectionsDirectory": "Select another collections directory",
+        "SelectButton": "SELECT..."
     },
     "ComponentsPage": {
         "Components": "Componentes"
