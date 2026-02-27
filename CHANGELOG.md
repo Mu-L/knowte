@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 
 - There is now a separator between pinned and unpinned notes for better visibility
+- It is now possible to uncheck all trashed notes
 
 ### Fixed
 
