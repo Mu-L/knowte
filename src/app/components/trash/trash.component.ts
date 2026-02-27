@@ -25,7 +25,7 @@ export class TrashComponent implements OnInit, OnDestroy {
         private translator: TranslatorService,
         public collectionService: CollectionService,
         public trash: TrashService,
-        private logger: Logger
+        private logger: Logger,
     ) {}
 
     public activeCollection: string = '';
@@ -44,7 +44,7 @@ export class TrashComponent implements OnInit, OnDestroy {
             this.trash.openTrashRequested$.subscribe(() => {
                 this.activeCollection = this.collectionService.getActiveCollection();
                 this.trashedNotes = this.collectionService.getTrashedNotes();
-            })
+            }),
         );
     }
 
@@ -53,10 +53,8 @@ export class TrashComponent implements OnInit, OnDestroy {
     }
 
     public selectAllNotes(event: MatCheckboxChange): void {
-        if (event.checked) {
-            for (const trashedNote of this.trashedNotes) {
-                trashedNote.isSelected = true;
-            }
+        for (const trashedNote of this.trashedNotes) {
+            trashedNote.isSelected = event.checked;
         }
     }
 
