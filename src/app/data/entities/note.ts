@@ -2,11 +2,16 @@ import * as moment from 'moment';
 import { nanoid } from 'nanoid';
 
 export class Note {
-    constructor(public title: string, public notebookId: string, public isMarkdownNote: boolean) {}
+    constructor(
+        public title: string,
+        public notebookId: string,
+        public isMarkdownNote: boolean,
+    ) {}
 
     public id: string = nanoid();
     public isMarked: boolean = false;
     public isPinned: boolean = false;
+    public isLastPinned: boolean = false;
     public isEncrypted: boolean = false;
     public secretKeyHash: string = '';
     public creationDate: number = moment().valueOf();

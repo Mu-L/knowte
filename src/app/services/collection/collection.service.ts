@@ -84,7 +84,7 @@ export class CollectionService {
         private fileAccess: FileAccess,
         private scheduler: Scheduler,
         private settings: BaseSettings,
-        private logger: Logger
+        private logger: Logger,
     ) {}
 
     public collectionsChanged$: Observable<void> = this.collectionsChanged.asObservable();
@@ -148,7 +148,7 @@ export class CollectionService {
             this.logger.info(
                 `Created storageDirectory '${storageDirectory}' on disk if it did not exist yet.`,
                 'CollectionService',
-                'setStorageDirectoryAsync'
+                'setStorageDirectoryAsync',
             );
 
             // Save storage directory in the settings
@@ -158,7 +158,7 @@ export class CollectionService {
             this.logger.error(
                 `Could not create storage directory on disk. Cause: ${error}`,
                 'CollectionService',
-                'setStorageDirectoryAsync'
+                'setStorageDirectoryAsync',
             );
 
             return false;
@@ -242,7 +242,7 @@ export class CollectionService {
                 this.logger.info(
                     `Not adding collection '${sanitizedCollection}' because it already exists`,
                     'CollectionService',
-                    'addCollectionAsync'
+                    'addCollectionAsync',
                 );
                 return Operation.Duplicate;
             }
@@ -258,7 +258,7 @@ export class CollectionService {
             this.logger.error(
                 `Could not add collection '${sanitizedCollection}'. Cause: ${error}`,
                 'CollectionService',
-                'addCollectionAsync'
+                'addCollectionAsync',
             );
 
             return Operation.Error;
@@ -292,7 +292,7 @@ export class CollectionService {
             this.logger.error(
                 `Could not rename the collection '${oldCollection}' to '${newCollection}'. Cause: ${error}`,
                 'CollectionService',
-                'renameCollectionAsync'
+                'renameCollectionAsync',
             );
 
             return Operation.Error;
@@ -318,7 +318,7 @@ export class CollectionService {
             this.logger.error(
                 `Could not delete the collection '${collection}'. Cause: ${error}`,
                 'CollectionService',
-                'deleteCollectionAsync'
+                'deleteCollectionAsync',
             );
         }
 
@@ -392,7 +392,7 @@ export class CollectionService {
                 this.logger.info(
                     `Not adding notebook '${notebookName}' to the data store because it already exists`,
                     'CollectionService',
-                    'addNotebook'
+                    'addNotebook',
                 );
                 return Operation.Duplicate;
             }
@@ -439,7 +439,7 @@ export class CollectionService {
             this.logger.error(
                 `Could not rename the notebook with id='${notebookId}' to '${newNotebookName}'. Cause: ${error}`,
                 'CollectionService',
-                'renameNotebookAsync'
+                'renameNotebookAsync',
             );
 
             return Operation.Error;
@@ -464,7 +464,7 @@ export class CollectionService {
                 this.logger.error(
                     `Could not delete the notebook with id='${notebookId}'. Cause: ${error}`,
                     'CollectionService',
-                    'deleteNotebooksAsync'
+                    'deleteNotebooksAsync',
                 );
                 operation = Operation.Error;
             }
@@ -485,7 +485,7 @@ export class CollectionService {
             this.logger.error(
                 `Could not delete the files of note id='${noteId}'. Cause: ${error}`,
                 'CollectionService',
-                'deleteNotePermanentlyAsync'
+                'deleteNotePermanentlyAsync',
             );
         }
     }
@@ -500,7 +500,7 @@ export class CollectionService {
                 this.logger.error(
                     `Could not permanently delete the note with id='${noteId}'. Cause: ${error}`,
                     'CollectionService',
-                    'deleteNotesPermanentlyAsync'
+                    'deleteNotesPermanentlyAsync',
                 );
 
                 operation = Operation.Error;
@@ -523,7 +523,7 @@ export class CollectionService {
                     this.logger.error(
                         `Could not move the the note with id='${noteId}' to the trash. Cause: ${error}`,
                         'CollectionService',
-                        'deleteNotes'
+                        'deleteNotes',
                     );
 
                     operation = Operation.Error;
@@ -535,7 +535,7 @@ export class CollectionService {
                     this.logger.error(
                         `Could not delete the note with id='${noteId}'. Cause: ${error}`,
                         'CollectionService',
-                        'deleteNotesAsync'
+                        'deleteNotesAsync',
                     );
 
                     operation = Operation.Error;
@@ -587,6 +587,10 @@ export class CollectionService {
             let pinnedUncategorizedNotes: Note[] = uncategorizedNotes.filter((x) => x.isPinned);
             let unpinnedUncategorizedNotes: Note[] = uncategorizedNotes.filter((x) => !x.isPinned);
 
+            if (pinnedUncategorizedNotes.length > 0) {
+                pinnedUncategorizedNotes[pinnedUncategorizedNotes.length - 1].isLastPinned = true;
+            }
+
             uncategorizedNotes = [];
             uncategorizedNotes.push(...pinnedUncategorizedNotes);
             uncategorizedNotes.push(...unpinnedUncategorizedNotes);
@@ -611,7 +615,7 @@ export class CollectionService {
 
                 const result: NoteDateFormatResult = await this.noteDateFormatter.getNoteDateFormatAsync(
                     note.modificationDate,
-                    useExactDates
+                    useExactDates,
                 );
 
                 // More counts
@@ -739,7 +743,7 @@ export class CollectionService {
                 this.logger.error(
                     `Could not set the notebook for the note with id='${noteId}' to notebook with id='${notebookId}'. Cause: ${error}`,
                     'CollectionService',
-                    'setNotebook'
+                    'setNotebook',
                 );
                 setNotebookOperation = Operation.Error;
             }
@@ -773,20 +777,20 @@ export class CollectionService {
                     this.logger.info(
                         `Renamed note with id=${noteId} from ${initialNoteTitle} to ${uniqueNoteTitle}.`,
                         'CollectionService',
-                        'saveNoteTitleEventHandler'
+                        'saveNoteTitleEventHandler',
                     );
                 } else {
                     this.logger.warn(
                         `Note with id=${noteId} could not be found. It was probably deleted.`,
                         'CollectionService',
-                        'saveNoteTitleEventHandler'
+                        'saveNoteTitleEventHandler',
                     );
                 }
             } catch (error) {
                 this.logger.error(
                     `Could not rename the note with id='${noteId}' to '${uniqueNoteTitle}'. Cause: ${error}`,
                     'CollectionService',
-                    'saveNoteTitleEventHandler'
+                    'saveNoteTitleEventHandler',
                 );
                 callback(new NoteOperationResult(Operation.Error));
                 return;
@@ -795,7 +799,7 @@ export class CollectionService {
             this.logger.info(
                 'Final title is the same as initial title. No rename required.',
                 'CollectionService',
-                'saveNoteTitleEventHandler'
+                'saveNoteTitleEventHandler',
             );
         }
 
@@ -813,7 +817,7 @@ export class CollectionService {
         isEncrypted: boolean,
         secretKey: string,
         tasksCount: TasksCount,
-        callback: any
+        callback: any,
     ): void {
         try {
             const note: Note = this.collectionDataStoreAccess.getNoteById(noteId);
@@ -834,14 +838,14 @@ export class CollectionService {
                 this.logger.warn(
                     `Note with id=${noteId} could not be found. It was probably deleted.`,
                     'CollectionService',
-                    'saveNoteTextEventHandler'
+                    'saveNoteTextEventHandler',
                 );
             }
         } catch (error) {
             this.logger.error(
                 `Could not set text for the note with id='${noteId}' in the data store. Cause: ${error}`,
                 'CollectionService',
-                'saveNoteTextEventHandler'
+                'saveNoteTextEventHandler',
             );
             callback(Operation.Error);
             return;
@@ -885,7 +889,7 @@ export class CollectionService {
             this.logger.error(
                 `Could not move ${noteIds.length} notes to collection '${newCollection}'. Error: ${error.message}`,
                 'CollectionService',
-                'moveNotesToCollectionAsync'
+                'moveNotesToCollectionAsync',
             );
 
             return 0;
@@ -909,7 +913,7 @@ export class CollectionService {
                 this.logger.error(
                     `An error occurred while importing note file '${noteFilePath}'. Cause: ${error}`,
                     'CollectionService',
-                    'importNoteFilesAsync'
+                    'importNoteFilesAsync',
                 );
                 operation = Operation.Error;
             }
@@ -926,7 +930,7 @@ export class CollectionService {
         noteTitle: string,
         noteText: string,
         notebookId: string,
-        isMarkdownNote: boolean
+        isMarkdownNote: boolean,
     ): Promise<string> {
         const uniqueNoteTitle: string = await this.getUniqueImportedNoteTitleAsync(noteTitle);
 
@@ -1073,8 +1077,8 @@ export class CollectionService {
                 note.isTrashed,
                 note.isEncrypted,
                 note.secretKeyHash,
-                note.isMarkdownNote
-            )
+                note.isMarkdownNote,
+            ),
         );
     }
 
@@ -1104,12 +1108,12 @@ export class CollectionService {
                 this.openNoteIds.push(noteId);
 
                 const activeCollectionDirectoryPath: string = await this.collectionFileAccess.getCollectionDirectoryPath(
-                    this.settings.activeCollection
+                    this.settings.activeCollection,
                 );
                 this.logger.info(
                     `Active collection directory=${activeCollectionDirectoryPath}`,
                     'CollectionService',
-                    'importNoteFilesAsync'
+                    'importNoteFilesAsync',
                 );
                 const arg: any = {
                     notePath: activeCollectionDirectoryPath,
@@ -1132,7 +1136,7 @@ export class CollectionService {
                 this.logger.error(
                     `Could not delete unused note attachments of note with id='${noteId}'. Cause: ${error}`,
                     'CollectionService',
-                    'setNoteOpenAsync'
+                    'setNoteOpenAsync',
                 );
             }
         }

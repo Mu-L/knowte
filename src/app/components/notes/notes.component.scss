@@ -142,3 +142,13 @@
 .note-status-text {
     color: var(--theme-secondary-text);
 }
+
+.pinned-border {
+    margin-top: 2px;
+    margin-bottom: 2px;
+    border-bottom: 1px solid transparent;
+}
+
+.pinned-border-active {
+    border-bottom: 1px solid var(--theme-separator);
+}
