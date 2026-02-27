@@ -12,6 +12,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - There is now a separator between pinned and unpinned notes for better visibility
 - It is now possible to uncheck all trashed notes
 
+### Changed
+
+- Updated the Croatian translation
+
 ### Fixed
 
 - Fixed the checkbox color for the light theme on the trash pane
