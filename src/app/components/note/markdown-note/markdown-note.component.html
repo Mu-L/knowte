@@ -98,13 +98,14 @@
                 id="markdown-input"
                 [(ngModel)]="this.noteEditor.content"
                 (ngModelChange)="onContentChange()"
+                (keydown.tab)="onTabKey($event)"
             ></textarea>
         </div>
         <markdown
             class="markdown-output markdown-body"
             id="markdown-output"
             [ngClass]="{ 'markdown-output-maximized': !this.noteEditor.isEditing }"
-            data="{{ this.noteEditor.content | fixImagePaths : this.noteEditor.noteId }}"
+            data="{{ this.noteEditor.content | fixImagePaths: this.noteEditor.noteId }}"
         ></markdown>
     </div>
 </div>
