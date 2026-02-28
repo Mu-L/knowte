@@ -45,9 +45,9 @@
     pointer-events: none;
 }
 
-.md-title-1 { color: var(--theme-accent-color) !important; font-weight: bold; }
-.md-title-2 { color: var(--theme-editor-secondary-text) !important; font-weight: bold; }
-.md-title-3 { color: var(--theme-editor-secondary-text) !important; font-weight: bold; }
+.md-title-1 { color: var(--theme-accent-color) !important; font-weight: bold; text-decoration: underline; }
+.md-title-2 { color: var(--theme-editor-secondary-text) !important; font-weight: bold; text-decoration: underline; }
+.md-title-3 { color: var(--theme-editor-secondary-text) !important; font-weight: bold; text-decoration: underline; }
 
 .markdown-output {
     width: 50%;
