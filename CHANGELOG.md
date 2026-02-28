@@ -20,6 +20,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Fixed
 
 - Fixed some UI inconsistencies
+- Fixed tab key press in markdown notes
 
 ## [3.0.1] - 2025-08-04
 
