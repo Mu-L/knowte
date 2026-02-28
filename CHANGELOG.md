@@ -21,6 +21,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Fixed some UI inconsistencies
 - Fixed tab key press in markdown notes
+- Fixed bold not looking bold in markdown notes in Windows
 
 ## [3.0.1] - 2025-08-04
 
