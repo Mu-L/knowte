@@ -1,21 +1,22 @@
 const { pathsToModuleNameMapper } = require('ts-jest');
-const { compilerOptions } = require('./tsconfig');
+const { compilerOptions } = require('./tsconfig.base');
 
 module.exports = {
     preset: 'jest-preset-angular',
-    roots: ['<rootDir>/src/'],
-    testMatch: ['<rootDir>/src/**/*(*.)+(spec).+(ts)'],
+    roots: ['<rootDir>/'],
+    testMatch: ['<rootDir>/src/**/*(*.)+(spec).+(ts)', '<rootDir>/main/**/*(*.)+(spec).+(js)'],
     setupFilesAfterEnv: ['<rootDir>/src/test.ts'],
-    collectCoverage: true,
-    coverageReporters: ['html'],
-    coverageDirectory: 'coverage/knowte',
     moduleNameMapper: pathsToModuleNameMapper(compilerOptions.paths || {}, {
         prefix: '<rootDir>/',
     }),
-    globals: {
-        'ts-jest': {
-            tsConfig: '<rootDir>/tsconfig.spec.json',
-        },
+    transform: {
+        '^.+\\.{ts|tsx}?$': [
+            'ts-jest',
+            {
+                babel: true,
+                tsConfig: 'tsconfig.spec.json',
+            },
+        ],
     },
-    setupFiles: ['<rootDir>/jest.crypto-setup.js', '<rootDir>/jest.setup.js'],
+    setupFiles: ['<rootDir>/jest.setup.js'],
 };
