@@ -30,6 +30,10 @@ export class ClassicNoteEditor implements INoteEditor {
         // Not used in ClassicNoteEditor
     }
 
+    public applyUnorderedList(): void {
+        // Not used in ClassicNoteEditor
+    }
+
     public isEditing: boolean;
 
     public get text(): string {
