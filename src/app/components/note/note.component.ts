@@ -81,7 +81,7 @@ export class NoteComponent implements OnInit {
         private searchClient: SearchClient,
         private bottomSheet: MatBottomSheet,
         private noteEditorFactory: NoteEditorFactory,
-        private scheduler: Scheduler
+        private scheduler: Scheduler,
     ) {}
 
     public isEncrypted: boolean = false;
@@ -100,7 +100,7 @@ export class NoteComponent implements OnInit {
     public actionIconRotation: string = 'default';
     public canSearch: boolean = false;
     private searchText: string = '';
-    private noteEditor: INoteEditor;
+    public noteEditor: INoteEditor;
 
     public async ngOnInit(): Promise<void> {
         this.activatedRoute.queryParams.subscribe(async (params) => {
@@ -123,7 +123,7 @@ export class NoteComponent implements OnInit {
                 const hasSelectedText: boolean = this.noteEditor.hasSelectedText();
                 const contextMenuItemsEnabledState: ContextMenuItemsEnabledState = new ContextMenuItemsEnabledState(
                     hasSelectedText,
-                    this.clipboard.containsText() || this.clipboard.containsImage()
+                    this.clipboard.containsText() || this.clipboard.containsImage(),
                 );
                 this.noteContextMenuFactory.createAsync(
                     this.noteWindow.webContents,
@@ -132,7 +132,7 @@ export class NoteComponent implements OnInit {
                     () => this.noteEditor.performCut(),
                     () => this.noteEditor.performCopy(),
                     () => this.noteEditor.performPaste(),
-                    () => this.noteEditor.performDelete()
+                    () => this.noteEditor.performDelete(),
                 );
             });
         });
@@ -162,21 +162,21 @@ export class NoteComponent implements OnInit {
             this.searchClient.searchTextChanged$.subscribe((searchText: string) => {
                 this.searchText = searchText;
                 this.applySearch();
-            })
+            }),
         );
         this.subscription.add(this.collectionClient.closeNote$.subscribe((noteId: string) => this.closeNoteIfMatching(noteId)));
         this.subscription.add(this.collectionClient.closeAllNotes$.subscribe(() => this.closeNote()));
         this.subscription.add(this.collectionClient.focusNote$.subscribe((noteId: string) => this.focusNote(noteId)));
         this.subscription.add(
-            this.collectionClient.noteZoomPercentageChanged$.subscribe(() => this.noteEditor.applyZoomPercentageFromSettings())
+            this.collectionClient.noteZoomPercentageChanged$.subscribe(() => this.noteEditor.applyZoomPercentageFromSettings()),
         );
         this.subscription.add(
             this.collectionClient.noteMarkChanged$.subscribe((result: NoteMarkResult) =>
-                this.noteMarkChanged(result.noteId, result.isMarked)
-            )
+                this.noteMarkChanged(result.noteId, result.isMarked),
+            ),
         );
         this.subscription.add(
-            this.collectionClient.notePinChanged$.subscribe((result: NotePinResult) => this.notePinChanged(result.noteId, result.isPinned))
+            this.collectionClient.notePinChanged$.subscribe((result: NotePinResult) => this.notePinChanged(result.noteId, result.isPinned)),
         );
         this.subscription.add(this.noteEditor.noteContentChanged$.subscribe(() => this.onNoteContentChange()));
     }
@@ -223,7 +223,7 @@ export class NoteComponent implements OnInit {
             this.logger.info(
                 `Note with id=${this.noteId} is dirty. Preventing close to save changes first.`,
                 'NoteComponent',
-                'beforeunloadHandler'
+                'beforeunloadHandler',
             );
 
             event.preventDefault();
@@ -481,7 +481,7 @@ export class NoteComponent implements OnInit {
         const result: NoteOperationResult = await this.collectionClient.saveNoteTitleAsync(
             this.noteId,
             this.initialNoteTitle,
-            finalNoteTitle
+            finalNoteTitle,
         );
 
         if (result.operation === Operation.Blank) {
@@ -518,7 +518,7 @@ export class NoteComponent implements OnInit {
             this.noteEditor.text,
             this.isEncrypted,
             this.secretKey,
-            this.noteEditor.getTasksCount()
+            this.noteEditor.getTasksCount(),
         );
 
         let showErrorDialog = false;
@@ -530,13 +530,13 @@ export class NoteComponent implements OnInit {
                     this.noteEditor.content,
                     this.isEncrypted,
                     this.secretKey,
-                    this.isMarkdownNote
+                    this.isMarkdownNote,
                 );
             } catch (error) {
                 this.logger.error(
                     `Could not save content for the note with id='${this.noteId}'. Cause: ${error}`,
                     'NoteComponent',
-                    'setNoteTextCallbackAsync'
+                    'setNoteTextCallbackAsync',
                 );
                 showErrorDialog = true;
             }
@@ -587,7 +587,7 @@ export class NoteComponent implements OnInit {
                 this.noteId,
                 this.isEncrypted,
                 this.secretKey,
-                this.isMarkdownNote
+                this.isMarkdownNote,
             );
 
             this.logger.info(`Setting the content for the note with id='${this.noteId}'`, 'NoteComponent', 'getNoteContentAsync');
@@ -596,7 +596,7 @@ export class NoteComponent implements OnInit {
             this.logger.error(
                 `Could not get the content for the note with id='${this.noteId}'. Cause: ${error}`,
                 'NoteComponent',
-                'getNoteContentAsync'
+                'getNoteContentAsync',
             );
 
             const errorText: string = await this.translator.getAsync('ErrorTexts.GetNoteContentError');

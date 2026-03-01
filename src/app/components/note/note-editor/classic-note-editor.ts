@@ -20,8 +20,15 @@ export class ClassicNoteEditor implements INoteEditor {
         private quillTweaker: QuillTweaker,
         private clipboard: ClipboardManager,
         private settings: BaseSettings,
-        private logger: Logger
+        private logger: Logger,
     ) {}
+
+    public applyTaskList(): void {
+        // Not used in ClassicNoteEditor
+    }
+    public applyOrderedList(): void {
+        // Not used in ClassicNoteEditor
+    }
 
     public isEditing: boolean;
 
@@ -168,7 +175,7 @@ export class ClassicNoteEditor implements INoteEditor {
             this.logger.error(
                 `Could not paste image from clipboard. Error: ${error.message}`,
                 'ClassicNoteEditor',
-                'pasteImageFromClipboard'
+                'pasteImageFromClipboard',
             );
             throw error;
         }

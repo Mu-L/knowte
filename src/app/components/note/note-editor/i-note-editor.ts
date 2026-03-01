@@ -27,4 +27,6 @@ export interface INoteEditor {
     applyQuote(): void;
     applyCode(): void;
     addImageFromDiskAsync(): Promise<void>;
+    applyTaskList(): void;
+    applyOrderedList(): void;
 }
