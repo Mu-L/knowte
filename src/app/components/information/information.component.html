@@ -16,11 +16,19 @@
     <div class="window-frame-content" [ngStyle]="{ top: appearance.windowHasNativeTitleBar ? '10px' : '32px' }">
         <div class="app-information">
             <app-sub-menu class="app-information__submenu">
-                <app-sub-menu-item [page]="0" [selectedPage]="this.page" (click)="this.setPage(0)">
-                    {{ 'InformationTabs.About' | translate }}
+                <app-sub-menu-item
+                    [page]="0"
+                    [selectedPage]="this.page"
+                    [text]="'InformationTabs.About' | translate"
+                    (click)="this.setPage(0)"
+                >
                 </app-sub-menu-item>
-                <app-sub-menu-item [page]="1" [selectedPage]="this.page" (click)="this.setPage(1)">
-                    {{ 'InformationTabs.Components' | translate }}
+                <app-sub-menu-item
+                    [page]="1"
+                    [selectedPage]="this.page"
+                    [text]="'InformationTabs.Components' | translate"
+                    (click)="this.setPage(1)"
+                >
                 </app-sub-menu-item>
             </app-sub-menu>
             <mat-divider></mat-divider>

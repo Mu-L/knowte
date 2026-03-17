@@ -1,8 +1,8 @@
 <app-logo-main
-        class="main-logo pointer"
-        (click)="goBackToCollection()"
-        matTooltip="{{ 'Tooltips.BackToNotes' | translate }}"
-        [showBackArrow]="true"
+    class="main-logo pointer"
+    (click)="goBackToCollection()"
+    matTooltip="{{ 'Tooltips.BackToNotes' | translate }}"
+    [showBackArrow]="true"
 ></app-logo-main>
 <div class="window-frame">
     <div class="window-frame-titlebar">
@@ -16,14 +16,26 @@
     <div class="window-frame-content" [ngStyle]="{ top: appearance.windowHasNativeTitleBar ? '10px' : '32px' }">
         <div class="app-settings">
             <app-sub-menu class="app-settings__submenu">
-                <app-sub-menu-item [page]="0" [selectedPage]="this.page" (click)="this.setPage(0)">
-                    {{ 'SettingsTabs.Appearance' | translate }}
+                <app-sub-menu-item
+                    [page]="0"
+                    [selectedPage]="this.page"
+                    [text]="'SettingsTabs.Appearance' | translate"
+                    (click)="this.setPage(0)"
+                >
                 </app-sub-menu-item>
-                <app-sub-menu-item [page]="1" [selectedPage]="this.page" (click)="this.setPage(1)">
-                    {{ 'SettingsTabs.Notes' | translate }}
+                <app-sub-menu-item
+                    [page]="1"
+                    [selectedPage]="this.page"
+                    [text]="'SettingsTabs.Notes' | translate"
+                    (click)="this.setPage(1)"
+                >
                 </app-sub-menu-item>
-                <app-sub-menu-item [page]="2" [selectedPage]="this.page" (click)="this.setPage(2)">
-                    {{ 'SettingsTabs.Advanced' | translate }}
+                <app-sub-menu-item
+                    [page]="2"
+                    [selectedPage]="this.page"
+                    [text]="'SettingsTabs.Advanced' | translate"
+                    (click)="this.setPage(2)"
+                >
                 </app-sub-menu-item>
             </app-sub-menu>
             <mat-divider></mat-divider>

@@ -12,4 +12,8 @@ export class SubMenuItemComponent {
 
     @Input()
     public selectedPage: number;
+    @Input()
+    public count: number = -1;
+    @Input()
+    public text: string;
 }

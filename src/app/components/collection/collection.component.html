@@ -12,35 +12,46 @@
     <div class="window-frame-content" [ngStyle]="{ top: this.appearance.windowHasNativeTitleBar ? '10px' : '32px' }">
         <div class="app-collection">
             <app-sub-menu class="app-collection__submenu">
-                <app-sub-menu-item [page]="0" [selectedPage]="this.page" (click)="this.setPage(0)">
-                    {{ 'NotesTabs.All' | translate }}
-                    <div class="count-label">
-                        {{ allNotesCount }}
-                    </div>
+                <app-sub-menu-item
+                    [page]="0"
+                    [selectedPage]="this.page"
+                    [count]="allNotesCount"
+                    [text]="'NotesTabs.All' | translate"
+                    (click)="this.setPage(0)"
+                >
                 </app-sub-menu-item>
-                <app-sub-menu-item [page]="1" [selectedPage]="this.page" (click)="this.setPage(1)">
-                    {{ 'NotesTabs.Today' | translate }}
-                    <div class="count-label">
-                        {{ todayNotesCount }}
-                    </div>
+                <app-sub-menu-item
+                    [page]="1"
+                    [selectedPage]="this.page"
+                    [count]="todayNotesCount"
+                    [text]="'NotesTabs.Today' | translate"
+                    (click)="this.setPage(1)"
+                >
                 </app-sub-menu-item>
-                <app-sub-menu-item [page]="2" [selectedPage]="this.page" (click)="this.setPage(2)">
-                    {{ 'NotesTabs.Yesterday' | translate }}
-                    <div class="count-label">
-                        {{ yesterdayNotesCount }}
-                    </div>
+                <app-sub-menu-item
+                    [page]="2"
+                    [selectedPage]="this.page"
+                    [count]="yesterdayNotesCount"
+                    [text]="'NotesTabs.Yesterday' | translate"
+                    (click)="this.setPage(2)"
+                >
                 </app-sub-menu-item>
-                <app-sub-menu-item [page]="3" [selectedPage]="this.page" (click)="this.setPage(3)">
-                    {{ 'NotesTabs.ThisWeek' | translate }}
-                    <div class="count-label">
-                        {{ thisWeekNotesCount }}
-                    </div>
+                <app-sub-menu-item
+                    [page]="3"
+                    [selectedPage]="this.page"
+                    [count]="thisWeekNotesCount"
+                    [text]="'NotesTabs.ThisWeek' | translate"
+                    (click)="this.setPage(3)"
+                >
                 </app-sub-menu-item>
-                <app-sub-menu-item [page]="4" [selectedPage]="this.page" (click)="this.setPage(4)">
+                <app-sub-menu-item
+                    [page]="4"
+                    [selectedPage]="this.page"
+                    [count]="markedNotesCount"
+                    [text]="'NotesTabs.Marked' | translate"
+                    (click)="this.setPage(4)"
+                >
                     {{ 'NotesTabs.Marked' | translate }}
-                    <div class="count-label">
-                        {{ markedNotesCount }}
-                    </div>
                 </app-sub-menu-item>
             </app-sub-menu>
             <mat-divider></mat-divider>
