@@ -1,6 +1,7 @@
 module.exports = {
     externals: {
         electron: 'commonjs electron',
+        child_process: 'commonjs child_process',
         ipc: 'commonjs ipc',
         'ipc-renderer': 'commonjs ipc-renderer',
         remote: 'commonjs remote',
