@@ -4,7 +4,7 @@ import { SpellCheckLanguage } from './spell-check-language';
 
 export class Constants {
     public static readonly logFileName: string = 'Knowte.log';
-    public static readonly donateUrl: string = 'https://digimezzo.github.io/site/donate';
+    public static readonly donateUrl: string = 'https://digimezzo.github.io/site/donate?software=knowte';
     public static readonly websiteUrl: string = 'https://digimezzo.github.io/site/';
     public static readonly blueskyUrl: string = 'https://bsky.app/profile/digimezzo.bsky.social';
     public static readonly mastodonUrl: string = 'https://hachyderm.io/@digimezzo';

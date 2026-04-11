@@ -46,6 +46,10 @@
             {{ 'CollectionSwitcher.OpenTrash' | translate }}
         </span>
     </button>
+    <mat-divider></mat-divider>
+    <button class="menu-button" mat-menu-item (click)="openTrash()">
+        <span class="d-flex align-items-center"> <i class="donate-icon las la-heart mr-1"></i> {{ 'AboutPage.Donate' | translate }} </span>
+    </button>
     <div *ngIf="this.updateService.isUpdateAvailable">
         <mat-divider></mat-divider>
         <button mat-menu-item (click)="downloadLatestRelease()">

@@ -4,17 +4,11 @@
     <div class="mt-3">
         {{ 'AboutPage.Version' | translate }}:
         <strong> {{ applicationVersion }}</strong>
-        <br/>{{ applicationCopyright }}
+        <br />{{ applicationCopyright }}
     </div>
     <app-transparent-button class="mt-2" (click)="openLicenseDialog()">
         {{ 'Buttons.License' | translate }}
     </app-transparent-button>
-    <mat-divider class="my-3"></mat-divider>
-    <div class="title1">{{ 'AboutPage.Donate' | translate }}</div>
-    <div>{{ 'AboutPage.IsKnowteUseful' | translate }}</div>
-    <app-accent-button class="mt-2" (click)="openDonateLink()">
-        {{ 'Buttons.Donate' | translate }}
-    </app-accent-button>
     <mat-divider class="my-3"></mat-divider>
     <div class="title1">{{ 'AboutPage.GetInTouch' | translate }}</div>
 
